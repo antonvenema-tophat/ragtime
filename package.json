@@ -1,0 +1,21 @@
+{
+  "name": "ragtime",
+  "version": "1.0.0",
+  "description": "Experiments with RAG",
+  "type": "module",
+  "scripts": {
+    "embed": "npx tsc && node dist/embed.js",
+    "llm": "ollama run llama3"
+  },
+  "author": "Anton Venema",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "glob": "^11.0.0",
+    "ollama": "^0.5.2"
+  }
+}
