@@ -2,20 +2,25 @@
   "name": "ragtime",
   "version": "1.0.0",
   "description": "Experiments with RAG",
-  "type": "module",
   "scripts": {
-    "embed": "npx tsc && node dist/embed.js",
-    "llm": "ollama run llama3"
+    "build": "npx tsc && copyfiles -u 1 src/**/*.pdf dist",
+    "start": "npm run build && node dist/index.js"
   },
   "author": "Anton Venema",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.14.10",
+    "copyfiles": "^2.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   },
   "dependencies": {
-    "glob": "^11.0.0",
-    "ollama": "^0.5.2"
+    "chalk": "4.1.2",
+    "commander": "^12.1.0",
+    "compute-cosine-similarity": "^1.1.0",
+    "openai": "^4.52.7",
+    "pdf2json": "^3.1.3",
+    "wink-eng-lite-web-model": "^1.8.0",
+    "wink-nlp": "^2.3.0"
   }
 }
