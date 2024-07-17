@@ -19,6 +19,7 @@ const rag = async (o: RagOptions) => {
     /*
     * Extract pages from a PDF file.
     */
+    log();
     log(chalk.green("Extracting textbook content..."));
     pages = await extract(path.join(__dirname, o.pdfPath));
 
@@ -26,6 +27,7 @@ const rag = async (o: RagOptions) => {
       /*
        * Create an embedding (vector) for each page.
        */
+      log();
       log(chalk.green("Creating page embeddings..."));
       pageEmbeddings = await Promise.all(pages.map(embed));
     }
@@ -48,6 +50,7 @@ const rag = async (o: RagOptions) => {
     /*
      * Get the user query.
      */
+    log();
     const userQuery = await rl.question(chalk.blue("What would you like to know? "));
 
     let relevantContent;
@@ -62,6 +65,7 @@ const rag = async (o: RagOptions) => {
       /*
        * Identify textbook pages similar to the user query.
        */
+      log();
       log(chalk.green("Finding similar pages..."));
       const relevantPage = search(userQueryEmbedding, pageEmbeddings.slice(0, pageIndex));
       if (!relevantPage) {
